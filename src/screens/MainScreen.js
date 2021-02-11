@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet, Button } from 'react-native';
-import { KEY } from '@env';
+import {Text, StyleSheet, Button} from 'react-native';
+import {KEY} from '@env';
 
-const MainScreen = ({ navigation }) => {
+const MainScreen = ({navigation}) => {
   return (
     <>
       <Text></Text>

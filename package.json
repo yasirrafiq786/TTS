@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPad Pro (12.9-inch) (4th generation) (14.1)'",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
@@ -17,8 +17,11 @@
     "react-dom": "16.13.1",
     "react-native": "0.63.4",
     "react-native-dotenv": "^2.5.1",
+    "react-native-dropdown-picker": "^3.8.0",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "~1.8.0",
+    "react-native-material-dropdown-v2-fixed": "^0.11.3",
+    "react-native-paper": "^4.7.1",
     "react-native-reanimated": "~1.13.0",
     "react-native-safe-area-context": "3.1.9",
     "react-native-screens": "~2.15.2",
@@ -26,6 +29,7 @@
     "react-native-svg": "^12.1.0",
     "react-native-unimodules": "~0.12.0",
     "react-native-util": "^1.0.2",
+    "react-native-vector-icons": "^8.0.0",
     "react-native-web": "~0.13.12",
     "react-navigation": "^4.4.3",
     "react-navigation-stack": "^2.10.2"

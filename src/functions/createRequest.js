@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {KEY} from '@env';
 
-export const googleRequest = async (text) => {
+export const googleRequest = async (text, voice) => {
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${KEY}`;
   const response = await axios({
     method: 'post',
@@ -11,11 +11,7 @@ export const googleRequest = async (text) => {
       input: {
         text,
       },
-      voice: {
-        languageCode: 'en-gb',
-        name: 'en-GB-Standard-A',
-        ssmlGender: 'FEMALE',
-      },
+      voice,
       audioConfig: {
         audioEncoding: 'MP3',
       },
