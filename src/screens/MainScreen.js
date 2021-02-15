@@ -7,6 +7,7 @@ const MainScreen = ({navigation}) => {
     <>
       <Text></Text>
       <Button title="Google" onPress={() => navigation.navigate('Google')} />
+      <Button title="AWS Polly" onPress={() => navigation.navigate('Aws')} />
     </>
   );
 };

@@ -10,6 +10,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.5.0",
+    "@aws-sdk/client-polly": "^3.5.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.5.0",
+    "@aws-sdk/polly-request-presigner": "^3.5.0",
+    "aws-sdk": "^2.843.0",
     "axios": "^0.21.1",
     "metro-react-native-babel-preset": "^0.65.0",
     "react": "16.13.1",
@@ -27,6 +32,7 @@
     "react-native-screens": "~2.15.2",
     "react-native-sound": "git+https://github.com/zmxv/react-native-sound.git#fix_android_network_sound",
     "react-native-svg": "^12.1.0",
+    "react-native-track-player": "^1.2.3",
     "react-native-unimodules": "~0.12.0",
     "react-native-util": "^1.0.2",
     "react-native-vector-icons": "^8.0.0",

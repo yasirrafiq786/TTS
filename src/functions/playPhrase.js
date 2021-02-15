@@ -1,6 +1,5 @@
-const Sound = require('react-native-sound');
-
 const playPhrase = (phraseAudio) => {
+  const Sound = require('react-native-sound');
   const speech = new Sound(phraseAudio, '', (error) => {
     if (error) {
       console.log('failed to load the sound', error);
