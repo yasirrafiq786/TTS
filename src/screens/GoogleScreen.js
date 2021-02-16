@@ -6,6 +6,7 @@ import createAudioFile from '../functions/createAudioFile';
 import playPhrase from '../functions/playPhrase';
 import {createVoice} from '../functions/createOptions';
 import DropDownPicker from 'react-native-dropdown-picker';
+import Information from '../components/Information';
 
 const GoogleScreen = ({navigation}) => {
   const [phrase, setPhrase] = useState('');

@@ -6,12 +6,14 @@ import playPhrase from '../functions/playPhrase';
 import createAudioFile from '../functions/createAudioFile';
 import {createPollyVoices} from '../functions/createOptions';
 import DropDownPicker from 'react-native-dropdown-picker';
+import Information from '../components/Information';
 
 const AwsScreen = () => {
   const [phrase, setPhrase] = useState('');
   const [options, setOptions] = useState([]);
   const [voice, setVoice] = useState('Kevin');
   const [loaded, setLoaded] = useState(false);
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +30,10 @@ const AwsScreen = () => {
     const path = RNFS.DocumentDirectoryPath + '/voice.mp3';
     const startTime = Date.now();
     const data = await awsPollyRequest(phrase, voice);
-    createAudioFile(path, data);
+    await createAudioFile(path, data);
     playPhrase(path);
     const endTime = Date.now();
+    setTime(endTime - startTime);
     setPhrase('');
   };
 
@@ -68,6 +71,11 @@ const AwsScreen = () => {
         handlePhrase={handlePhrase}
       />
       {(loaded && createDropDownPicker()) || <Text>Loading Options</Text>}
+      {time > 0 && (
+        <Text style={{margin: 10, fontSize: 32}}>
+          This took {time} ms to play.
+        </Text>
+      )}
     </>
   );
 };
