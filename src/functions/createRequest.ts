@@ -1,10 +1,15 @@
 import axios from 'axios';
 import AWS from 'aws-sdk';
+import {arrayBufferToBase64} from '../functions/arrayBufferToBase64';
 import {AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, KEY} from '@env';
-import createAudioFile from '../functions/createAudioFile';
-import playPhrase from '../functions/playPhrase';
 
-export const googleRequest = async (text, voice) => {
+type Language = {
+  languageCode: string;
+  name: string;
+  ssmlGender: string;
+};
+
+export const googleRequest = async (text: string, voice: Language) => {
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${KEY}`;
   const response = await axios({
     method: 'post',
@@ -23,7 +28,7 @@ export const googleRequest = async (text, voice) => {
   return response.data.audioContent;
 };
 
-export const awsPollyRequest = async (Text, VoiceId) => {
+export const awsPollyRequest = async (Text: string, VoiceId: string) => {
   AWS.config.update({
     region: AWS_REGION,
     accessKeyId: AWS_ACCESS_KEY_ID,
@@ -39,8 +44,7 @@ export const awsPollyRequest = async (Text, VoiceId) => {
     })
     .promise();
 
-  const ToBase64 = (u8) => {
-    return btoa(String.fromCharCode.apply(null, u8));
-  };
-  return ToBase64(response.AudioStream);
+  const audioBuffer = <Uint8Array>response.AudioStream;
+
+  return arrayBufferToBase64(audioBuffer);
 };

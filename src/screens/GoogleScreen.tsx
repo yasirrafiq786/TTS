@@ -4,20 +4,19 @@ import PhraseInput from '../components/PhraseInput';
 import {googleRequest} from '../functions/createRequest';
 import createAudioFile from '../functions/createAudioFile';
 import playPhrase from '../functions/playPhrase';
-import {createVoice} from '../functions/createOptions';
+import {createVoice, OptionProps} from '../functions/createOptions';
 import DropDownPicker from 'react-native-dropdown-picker';
-import Information from '../components/Information';
 
-const GoogleScreen = ({navigation}) => {
-  const [phrase, setPhrase] = useState('');
-  const [options, setOptions] = useState([]);
+const GoogleScreen = () => {
+  const [phrase, setPhrase] = useState<string>('');
+  const [options, setOptions] = useState([] as OptionProps[]);
   const [voice, setVoice] = useState({
     languageCode: 'en-gb',
     name: 'en-GB-Standard-A',
     ssmlGender: 'FEMALE',
   });
-  const [loaded, setLoaded] = useState(false);
-  const [time, setTime] = useState(0);
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +27,7 @@ const GoogleScreen = ({navigation}) => {
     fetchData();
   }, []);
 
-  const handlePhrase = async (phrase) => {
+  const handlePhrase = async (phrase: string) => {
     const RNFS = require('react-native-fs');
     const path = RNFS.DocumentDirectoryPath + '/voice.mp3';
     const startTime = Date.now();

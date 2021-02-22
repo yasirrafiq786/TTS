@@ -1,8 +1,9 @@
 import React from 'react';
 import {Text, StyleSheet, Button} from 'react-native';
 import {KEY} from '@env';
+import {NavigationStackScreenProps} from 'react-navigation-stack';
 
-const MainScreen = ({navigation}) => {
+const MainScreen = ({navigation}: NavigationStackScreenProps) => {
   return (
     <>
       <Text></Text>
