@@ -5,7 +5,7 @@ import {googleRequest} from '../functions/createRequest';
 import createAudioFile from '../functions/createAudioFile';
 import playPhrase from '../functions/playPhrase';
 import {createVoice, OptionProps} from '../functions/createOptions';
-import DropDownPicker from 'react-native-dropdown-picker';
+import DropDown from 'react-native-dropdown-picker';
 
 const GoogleScreen = () => {
   const [phrase, setPhrase] = useState<string>('');
@@ -51,7 +51,7 @@ const GoogleScreen = () => {
 
   const createDropDownPicker = () => {
     return (
-      <DropDownPicker
+      <DropDown
         dropDownMaxHeight={1000}
         items={createItems()}
         style={{backgroundColor: '#fafafa'}}

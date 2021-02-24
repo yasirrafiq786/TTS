@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Text, StyleSheet, View} from 'react-native';
+import {Text} from 'react-native';
 import PhraseInput from '../components/PhraseInput';
 import {awsPollyRequest} from '../functions/createRequest';
 import playPhrase from '../functions/playPhrase';
